@@ -1,0 +1,34 @@
+lowercase_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j','k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't','u', 'v', 'w', 'x', 'y', 'z']
+#directions = input("Type 'encode' to encrypt and 'decode' to decrypt:\n").lower()
+#text = input("Type your message:\n").lower()
+#   shift = int(input("Type your shift number:\n"))
+
+def cipher(shift, text, directions):
+        cipher_text = ""
+        for letter in text:
+            if letter not in lowercase_letters:
+                cipher_text += letter
+            else:
+                if directions == "decode":
+                     shift *= -1
+                shifted_postion = lowercase_letters.index(letter) + shift
+                if shifted_postion > len(lowercase_letters):
+                    shifted_postion - 25
+                cipher_text += lowercase_letters[shifted_postion]
+        print(f"Here is the {directions} result: {cipher_text}")
+
+should_continue = True
+while should_continue:
+    
+    directions = input("Type 'encode' to encrypt and 'decode' to decrypt:\n").lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type your shift number:\n"))
+    cipher(shift, text, directions) 
+    user_input = input("You want to continue?:").lower()
+
+    if user_input == "no":
+        should_continue = False
+        print("Goodbye! Mah Friend")    
+
+        
+        
